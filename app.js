@@ -12,13 +12,10 @@ dotenv.config();
 //dbye bağlanma
 mongoose.set("strictQuery", true);
 mongoose
-  .connect(
-    "mongodb+srv://metinzeren:2751557a@cluster0.tmmwwza.mongodb.net/coursemeto?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
-  )
+  .connect(process.env.DATABASE_URL || "mongodb://localhost/6326", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => {
     console.log("bağlandı");
   });
