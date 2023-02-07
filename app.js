@@ -6,7 +6,6 @@ const courseRoute = require("./routes/courseRoute");
 const categoryRoute = require("./routes/categoryRoute");
 const userRoute = require("./routes/userRoute");
 const app = express();
-const session = require("express-session");
 const cookieParser = require("cookie-parser");
 dotenv.config();
 //dbye bağlanma
@@ -25,13 +24,6 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors({}));
 app.use(express.urlencoded({ extended: true }));
-app.use(
-  session({
-    secret: "my_keyboard_cat", // Buradaki texti değiştireceğiz.
-    resave: false,
-    saveUninitialized: true,
-  })
-);
 app.get("/", (req, res) => {
   res.status(200).send("first req");
 });
