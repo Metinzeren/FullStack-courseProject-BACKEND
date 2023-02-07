@@ -16,7 +16,7 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    console.log("bağlandı");
+    console.log("BAĞLANDI MONGODBYE BAĞLANDIIIIIIIIIIIIIIII");
   });
 
 //middlewares
