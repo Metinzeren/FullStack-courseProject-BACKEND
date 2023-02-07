@@ -10,7 +10,9 @@ const session = require("express-session");
 const cookieParser = require("cookie-parser");
 dotenv.config();
 //dbye bağlanma
-mongoose.connect("mongodb://localhost/education");
+mongoose.connect(
+  "mongodb+srv://metinzeren:2751557a@cluster0.tmmwwza.mongodb.net/?retryWrites=true&w=majority"
+);
 //middlewares
 app.use(express.json());
 app.use(cookieParser());
