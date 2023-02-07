@@ -13,11 +13,16 @@ dotenv.config();
 mongoose.set("strictQuery", true);
 mongoose
   .connect(
-    "mongodb+srv://metinzeren:2751557a@cluster0.tmmwwza.mongodb.net/?retryWrites=true&w=majority"
+    "mongodb+srv://metinzeren:2751557a@cluster0.tmmwwza.mongodb.net/coursemeto?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
   )
   .then(() => {
     console.log("bağlandı");
   });
+
 //middlewares
 app.use(express.json());
 app.use(cookieParser());
