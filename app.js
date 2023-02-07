@@ -10,9 +10,13 @@ const session = require("express-session");
 const cookieParser = require("cookie-parser");
 dotenv.config();
 //dbye bağlanma
-mongoose.connect(
-  "mongodb+srv://metinzeren:2751557a@cluster0.tmmwwza.mongodb.net/?retryWrites=true&w=majority"
-);
+mongoose
+  .connect(
+    "mongodb+srv://metinzeren:2751557a@cluster0.tmmwwza.mongodb.net/?retryWrites=true&w=majority"
+  )
+  .then(() => {
+    console.log("bağlandı");
+  });
 //middlewares
 app.use(express.json());
 app.use(cookieParser());
@@ -32,7 +36,7 @@ app.get("/", (req, res) => {
 app.use("/courses", courseRoute);
 app.use("/categories", categoryRoute);
 app.use("/users", userRoute);
-const port = 4000;
+const port = process.env.PORT || 4000;
 app.listen(port, () => {
   console.log(`app started on port ${port}`);
 });
