@@ -10,6 +10,7 @@ const session = require("express-session");
 const cookieParser = require("cookie-parser");
 dotenv.config();
 //dbye bağlanma
+mongoose.set("strictQuery", true);
 mongoose
   .connect(
     "mongodb+srv://metinzeren:2751557a@cluster0.tmmwwza.mongodb.net/?retryWrites=true&w=majority"
