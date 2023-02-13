@@ -23,7 +23,10 @@ mongoose
 app.use(express.json());
 app.use(cookieParser());
 app.use(
-  cors({ origin: "https://coursemetinzerenn.onrender.com", credentials: true })
+  cors({
+    origin: ["http://localhost:3000", "https://coursemetinzerenn.onrender.com"],
+    credentials: true,
+  })
 );
 app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
