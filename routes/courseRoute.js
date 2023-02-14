@@ -7,9 +7,13 @@ router
   .route("/")
   .post(roleMiddleware(["teacher", "admin"]), courseControllers.createCourse);
 router.route("/").get(courseControllers.getCourses);
-router.route("/:id").delete(courseControllers.deleteCourse);
+router
+  .route("/:id")
+  .delete(roleMiddleware(["teacher", "admin"]), courseControllers.deleteCourse);
 router.route("/find/:slug").get(courseControllers.getCourse);
-router.route("/find/:slug").put(courseControllers.updateCourse);
+router
+  .route("/find/:slug")
+  .put(roleMiddleware(["teacher", "admin"]), courseControllers.updateCourse);
 router
   .route("/enroll")
   .post(roleMiddleware(["student"]), courseControllers.enrollCourse);
