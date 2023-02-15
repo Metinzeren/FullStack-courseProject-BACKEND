@@ -12,7 +12,7 @@ router
   .delete(roleMiddleware(["teacher", "admin"]), courseControllers.deleteCourse);
 router.route("/find/:slug").get(courseControllers.getCourse);
 router
-  .route("/find/:slug")
+  .route("/:id")
   .put(roleMiddleware(["teacher", "admin"]), courseControllers.updateCourse);
 router
   .route("/enroll")
